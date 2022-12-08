@@ -47,7 +47,7 @@ def read_input(day):
 def main(day, part):
     lines = read_input(day)
     module = __import__("day{}".format(day))
-    day_class = getattr(module, "Day{}".format(3))
+    day_class = getattr(module, "Day{}".format(day))
     day_instance = day_class(lines)
     return day_instance.part(part)
 
