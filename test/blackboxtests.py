@@ -32,9 +32,9 @@ class MyTestCase(unittest.TestCase):
             f = open(path_in_str, "r")
             expected_result = f.read()
             f.close()
-
+            print("run black box test for day {} part {}".format(day, part))
             assert str(result) == str(expected_result), "result '{}' does not match expected result '{}'".format(result, expected_result)
-
+            print("OK")
 
 
 if __name__ == '__main__':
