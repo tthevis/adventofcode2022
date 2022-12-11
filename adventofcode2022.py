@@ -39,7 +39,7 @@ def parse_args():
 
 def read_input(day):
     file = open("input/input_{}".format(day), "r")
-    lines = file.readlines()
+    lines = list(map(lambda line: line.rstrip("\n"), file.readlines()))
     file.close()
     return lines
 

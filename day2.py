@@ -4,7 +4,7 @@ from adventofcode2022 import Day
 class Day2(Day):
 
     def play_game(self, game):
-        return sum([game[x.strip()] for x in self.input])
+        return sum([game[x] for x in self.input])
 
     def part1(self):
         game = {
