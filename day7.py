@@ -9,12 +9,12 @@ class Day7(Day):
         self.cur_path = []
         self.dir_sizes = {}
         self.cd_pattern = re.compile("\\$ cd (.+)$")
-        self.file_pattern = re.compile("(\\d+) (.*)$")
+        self.file_pattern = re.compile("(\\d+) (.+)$")
 
     def change_directory(self, line):
         directory = self.cd_pattern.findall(line)[0]
         if directory == "/":
-            self.cur_path = []
+            self.cur_path = ["/"]
         elif directory == "..":
             self.cur_path.pop()
         else:
@@ -42,7 +42,6 @@ class Day7(Day):
             if self.file_pattern.match(line):
                 self.add_file(line)
 
-        total_size = sum([self.dir_sizes[dir] for dir in self.dir_sizes if not dir.__contains__("/")])
+        total_size = self.dir_sizes["/"]
         free_up_space = 30000000 - (70000000 - total_size)
-
         return min([val for val in self.dir_sizes.values() if val >= free_up_space])
